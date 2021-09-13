@@ -32,8 +32,12 @@ namespace IthsLabb2
                     case "2":
                         Console.Clear();
                         Console.Write("Vänligen skriv in ditt användarnamn: ");
+                        string usernameInput2 = Console.ReadLine();
+                        Console.Clear();
 
                         Console.Write("Skriv in ditt lösenord: ");
+                        string passwordInput2 = Console.ReadLine();
+
                         break;
                     //Avsluta programmet
                     case "0":
@@ -58,7 +62,7 @@ namespace IthsLabb2
         /// </summary>
         /// <param name="width"></param>
         /// <param name="height"></param>
-        public static void DrawBoxMeny1(int width = 26, int height = 3)
+        public static void DrawBoxMeny1(int width = 30, int height = 3)
         {
             Console.WriteLine("");
 
@@ -66,7 +70,7 @@ namespace IthsLabb2
             string line = new('#', width);
 
             //Skapar inre raderna
-            string innerLine = "Tryck 1 för att Registrera";
+            string innerLine = "Tryck 1 för att Registrera dig";
             string innerLine1 = "Tryck 2 för att Logga in";
             string innerLine2 = "Tryck 0 för att Avsluta";
 
