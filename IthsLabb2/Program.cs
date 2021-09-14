@@ -7,7 +7,6 @@ namespace IthsLabb2
         static void Main(string[] args)
         {
             //Första menyn när man startar applikationen
-            Console.WriteLine("Hejsan och välkommen till butiken! Vänligen välj nedan vad du vill göra:");
             DrawBoxMeny1();
             string menyOneInput = Console.ReadLine();
 
@@ -25,18 +24,21 @@ namespace IthsLabb2
                         Console.Clear();
                         Console.Write("Välj nu ditt lösenord: ");
                         string passwordInput = Console.ReadLine();
-                        //newCustomer.Password = passwordInput;
+                        newCustomer.Password = passwordInput;
                         Console.WriteLine("Din profil är nu skapad!");
                         break;
                     //Logga in kund    
                     case "2":
                         Console.Clear();
+                        ExistingCustomer exsitingCustomar = new ExistingCustomer();
                         Console.Write("Vänligen skriv in ditt användarnamn: ");
                         string usernameInput2 = Console.ReadLine();
+                        exsitingCustomar.Username = usernameInput2;
                         Console.Clear();
 
                         Console.Write("Skriv in ditt lösenord: ");
                         string passwordInput2 = Console.ReadLine();
+                        exsitingCustomar.Password = passwordInput2;
 
                         break;
                     //Avsluta programmet
@@ -64,6 +66,8 @@ namespace IthsLabb2
         /// <param name="height"></param>
         public static void DrawBoxMeny1(int width = 30, int height = 3)
         {
+
+            Console.WriteLine("Hejsan och välkommen till butiken! Vänligen välj nedan vad du vill göra:");
             Console.WriteLine("");
 
             //Skapar raden

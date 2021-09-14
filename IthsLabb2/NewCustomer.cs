@@ -9,7 +9,7 @@ namespace IthsLabb2
     class NewCustomer
     {
         public string Name { get; set; }
-        private string Password { get; set; }
+        public string Password { get; set; }
 
     }
 }

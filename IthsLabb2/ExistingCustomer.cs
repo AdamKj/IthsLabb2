@@ -8,6 +8,7 @@ namespace IthsLabb2
 {
     class ExistingCustomer
     {
-
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }
