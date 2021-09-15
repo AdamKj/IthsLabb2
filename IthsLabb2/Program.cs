@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace IthsLabb2
 {
@@ -8,23 +9,24 @@ namespace IthsLabb2
         {
             //Första menyn när man startar applikationen
             DrawBoxMeny1();
-            string menyOneInput = Console.ReadLine();
+            string mainMenyInput = Console.ReadLine();
+            
 
-            while (menyOneInput != "0")
+            while (mainMenyInput != "0")
             {
-                switch (menyOneInput)
+                switch (mainMenyInput)
                 {
                     //Registrera ny kund
                     case "1":
+                        var newCustomers = new List<NewCustomer>();
                         Console.Clear();
-                        NewCustomer newCustomer = new NewCustomer();
                         Console.Write("Vänligen registrera ett användarnamn: ");
-                        string usernameInput = Console.ReadLine();
-                        newCustomer.Name = usernameInput;
+                        var usernameInput = Console.ReadLine();
+                        newCustomers.Add(usernameInput);
+                        //newCustomers.Add(Console.ReadLine());
                         Console.Clear();
                         Console.Write("Välj nu ditt lösenord: ");
                         string passwordInput = Console.ReadLine();
-                        newCustomer.Password = passwordInput;
                         Console.WriteLine("Din profil är nu skapad!");
                         break;
                     //Logga in kund    
@@ -46,7 +48,7 @@ namespace IthsLabb2
                         break;
                     default:
                         Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
-                        menyOneInput = Console.ReadLine();
+                        mainMenyInput = Console.ReadLine();
                         break;
                 }
             }
@@ -57,6 +59,15 @@ namespace IthsLabb2
 
             Console.ReadKey();
 
+        }
+
+        private static void RegisterCustomer()
+        {
+            Console.Write("Vänligen registrera ett användarnamn: ");
+            string usernameInput = Console.ReadLine();
+            Console.Clear();
+            Console.Write("Välj nu ditt lösenord: ");
+            string passwordInput = Console.ReadLine();
         }
 
         /// <summary>

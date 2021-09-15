@@ -11,5 +11,12 @@ namespace IthsLabb2
         public string Name { get; set; }
         public string Password { get; set; }
 
+        public static void CustomerList()
+        {
+            
+        }
+        
+            
+
     }
 }
