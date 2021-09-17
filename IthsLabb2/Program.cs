@@ -18,29 +18,35 @@ namespace IthsLabb2
                 {
                     //Registrera ny kund
                     case "1":
+                        NewCustomer newCustomer = new NewCustomer();
                         var newCustomers = new List<NewCustomer>();
                         Console.Clear();
                         Console.Write("Vänligen registrera ett användarnamn: ");
                         var usernameInput = Console.ReadLine();
                         newCustomers.Add(usernameInput);
-                        //newCustomers.Add(Console.ReadLine());
                         Console.Clear();
                         Console.Write("Välj nu ditt lösenord: ");
-                        string passwordInput = Console.ReadLine();
+                        var passwordInput = Console.ReadLine();
+                        newCustomer.Password = passwordInput;
                         Console.WriteLine("Din profil är nu skapad!");
                         break;
                     //Logga in kund    
                     case "2":
+                        ExistingCustomer exsitingCustomer = new ExistingCustomer();
+                        var exsistingCustomers = new List<ExistingCustomer>();
                         Console.Clear();
-                        ExistingCustomer exsitingCustomar = new ExistingCustomer();
                         Console.Write("Vänligen skriv in ditt användarnamn: ");
                         string usernameInput2 = Console.ReadLine();
-                        exsitingCustomar.Username = usernameInput2;
+                        exsitingCustomer.Username = usernameInput2;
                         Console.Clear();
 
                         Console.Write("Skriv in ditt lösenord: ");
                         string passwordInput2 = Console.ReadLine();
-                        exsitingCustomar.Password = passwordInput2;
+                        exsitingCustomer.Password = passwordInput2;
+                        if(usernameInput2 == exsitingCustomer.Knatte())
+                        {
+
+                        }
 
                         break;
                     //Avsluta programmet
@@ -61,15 +67,7 @@ namespace IthsLabb2
 
         }
 
-        private static void RegisterCustomer()
-        {
-            Console.Write("Vänligen registrera ett användarnamn: ");
-            string usernameInput = Console.ReadLine();
-            Console.Clear();
-            Console.Write("Välj nu ditt lösenord: ");
-            string passwordInput = Console.ReadLine();
-        }
-
+        
         /// <summary>
         /// Gjorde en Drawbox istället för att skriva ut varje enskild rad, tyckte det blev lite snyggare.
         /// </summary>

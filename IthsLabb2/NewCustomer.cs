@@ -8,7 +8,7 @@ namespace IthsLabb2
 {
     class NewCustomer
     {
-        public string Name { get; set; }
+        public string Username { get; set; }
         public string Password { get; set; }
 
         public static void CustomerList()
