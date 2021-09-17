@@ -24,7 +24,7 @@ namespace IthsLabb2
                     newCustomer.CustomerCreation();
                     newCustomer.WelcomeMessage();
                     break;
-                    //Logga in kund    
+                //Logga in kund    
                 case "2":
                     ExistingCustomer exsitingCustomer = new ExistingCustomer();
                     var exsistingCustomers = new List<ExistingCustomer>();
