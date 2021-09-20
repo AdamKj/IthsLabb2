@@ -48,20 +48,19 @@ namespace IthsLabb2
             Console.WriteLine(line);
         }
 
-        public void StoreDrawBox(int width = 25, int height = 4)
+        public void StoreDrawBox(int width = 34, int height = 3)
         {
             Console.Clear();
-            Console.WriteLine("Välkommen till butiken! Välj nedan vad du vill handla eller om du vill gå till kundvagnen");
+            Console.WriteLine("Välkommen till butiken! Välj nedan om du vill handla, gå till kundvagnen eller logga ut");
             Console.WriteLine("");
 
             //Skapar raden
             string line = new('#', width);
 
             //Skapar inre raderna
-            string innerLine = "Tryck 1 för att köpa ";
-            string innerLine1 = "Tryck 2 för att köpa ";
-            string innerLine2 = "Tryck 3 för att köpa ";
-            string innerLine3 = "Tryck 0 för att gå till Kundvagnen";
+            string innerLine = "Tryck 1 för att Handla ";
+            string innerLine1 = "Tryck 2 för att Gå till Kundvagnen";
+            string innerLine2 = "Tryck 3 för att Logga ut";
 
             //Loopar igenom bredden
             for (int j = 0; j < width - 2; j++)
@@ -69,18 +68,16 @@ namespace IthsLabb2
                 innerLine += "";
                 innerLine1 += "";
                 innerLine2 += "";
-                innerLine3 += "";
 
             }
             Console.WriteLine(line);
 
             //Loopar igenom höjden
-            for (int i = 0; i < height - 3; i++)
+            for (int i = 0; i < height - 2; i++)
             {
                 Console.WriteLine(innerLine);
                 Console.WriteLine(innerLine1);
                 Console.WriteLine(innerLine2);
-                Console.WriteLine(innerLine3);
             }
             Console.WriteLine(line);
         }

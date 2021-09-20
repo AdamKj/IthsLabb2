@@ -8,15 +8,21 @@ namespace IthsLabb2
 {
     class Store
     {
-        public void WelcomeMessage()
+        public void Products()
         {
             Console.Clear();
-            Console.Write("Hej och välkommen till butiken! Välj nedan vad du vill göra: ");
-            string input = Console.ReadLine();
+            Console.WriteLine("Välkommen till våra varor! Välj nedan vad du vill köpa");
+            Console.WriteLine("");
 
-            
+            List<Products> productsList = new List<Products>();
+            productsList.Add(new Products() { Product = "Banan" });
+            productsList.Add(new Products() { Product = "Äpple" });
+            productsList.Add(new Products() { Product = "Päron" });
+
+            Console.WriteLine($"1. {productsList[0]}");
+            Console.WriteLine($"2. {productsList[1]}");
+            Console.WriteLine($"3. {productsList[2]}");
+
         }
-
-
     }
 }

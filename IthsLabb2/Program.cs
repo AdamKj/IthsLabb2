@@ -11,11 +11,11 @@ namespace IthsLabb2
             //Första menyn när man startar applikationen
             DrawBoxes meny = new DrawBoxes();
             meny.DrawBoxMeny1();
-            string mainMenyInput = Console.ReadLine();
+            string input = Console.ReadLine();
             string username = "";
             string password = "";
 
-            switch (mainMenyInput)
+            switch (input)
             {
                 //Registrera ny kund
                 case "1":
@@ -28,26 +28,36 @@ namespace IthsLabb2
                 case "2":
                     ExistingCustomer exsitingCustomer = new ExistingCustomer();
                     var exsistingCustomers = new List<ExistingCustomer>();
-                    Console.Clear();
-                    Console.Write("Vänligen skriv in ditt användarnamn: ");
-                    string usernameInput2 = Console.ReadLine();
-                    exsitingCustomer.Username = usernameInput2;
+                    exsitingCustomer.LogIn();
+                    exsitingCustomer.ToString();
                     Console.Clear();
 
-                    Console.Write("Skriv in ditt lösenord: ");
-                    string passwordInput2 = Console.ReadLine();
-                    exsitingCustomer.Password = passwordInput2;
                     break;
                 //Avsluta programmet
                 case "0":
                     break;
                 default:
                     Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
-                    mainMenyInput = Console.ReadLine();
+                    input = Console.ReadLine();
                     break;
             }
 
+            Store store = new Store();
             meny.StoreDrawBox();
+            input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1":
+                    store.Products();
+                    break;
+                case "2":
+
+                    break;
+                case "3":
+
+                    break;
+            }
 
 
 

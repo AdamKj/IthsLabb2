@@ -27,9 +27,44 @@ namespace IthsLabb2
             Password = password;
         }
 
+        public void LogIn()
+        {
+            Console.Clear();
+            Console.Write("Hej! Vänligen skriv in ditt användarnamn: ");
+            Username = Console.ReadLine();
+            Console.Write("Skriv nu in ditt lösenord: ");
+            Password = Console.ReadLine();
+        }
+
         public override string ToString()
         {
-            return $"Välkommen {Username}!";
+            if (Username == "Knatte" && Password == "123")
+            {
+                Console.WriteLine($"Välkommen {Username}!");
+                Console.Write("Tryck på valfri tangent för att forsätta till butiken:");
+                Console.ReadKey();
+            }
+            else if (Username == "Fnatte" && Password == "321")
+            {
+                Console.WriteLine($"Välkommen {Username}!");
+                Console.Write("Tryck på valfri tangent för att forsätta till butiken:");
+                Console.ReadKey();
+            }
+            else if (Username == "Tjatte" && Password == "213")
+            {
+                Console.WriteLine($"Välkommen {Username}!");
+                Console.Write("Tryck på valfri tangent för att forsätta till butiken:");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine($"Tyvärr finns inte {Username} registrerat. Vänligen registrera dig först.");
+                NewCustomer newCustomer = new NewCustomer(Username, Password);
+                newCustomer.CustomerCreation();
+                newCustomer.WelcomeMessage();
+
+            }
+            return "";
         }
     }
 }

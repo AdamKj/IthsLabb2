@@ -28,7 +28,7 @@ namespace IthsLabb2
         public void WelcomeMessage()
         {
             Console.WriteLine($"Välkommen {Username}!");
-            Console.WriteLine("Din profil är nu skapad! Du kommer nu att forsätta till butiken! Tryck på valfri knapp: ");
+            Console.Write("Din profil är nu skapad! Du kommer nu att forsätta till butiken! Tryck på valfri knapp för att fortsätta:");
             Console.ReadKey();
         }   
 
