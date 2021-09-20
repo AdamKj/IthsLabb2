@@ -15,32 +15,36 @@ namespace IthsLabb2
             string username = "";
             string password = "";
 
-            switch (input)
+            while (input != "0")
             {
-                //Registrera ny kund
-                case "1":
-                    NewCustomer newCustomer = new NewCustomer(username, password);
-                    Console.Clear();
-                    newCustomer.CustomerCreation();
-                    newCustomer.WelcomeMessage();
-                    break;
-                //Logga in kund    
-                case "2":
-                    ExistingCustomer exsitingCustomer = new ExistingCustomer();
-                    var exsistingCustomers = new List<ExistingCustomer>();
-                    exsitingCustomer.LogIn();
-                    exsitingCustomer.ToString();
-                    Console.Clear();
+                switch (input)
+                {
+                    //Registrera ny kund
+                    case "1":
+                        NewCustomer newCustomer = new NewCustomer(username, password);
+                        Console.Clear();
+                        newCustomer.CustomerCreation();
+                        newCustomer.WelcomeMessage();
+                        break;
+                    //Logga in kund    
+                    case "2":
+                        ExistingCustomer exsitingCustomer = new ExistingCustomer();
+                        var exsistingCustomers = new List<ExistingCustomer>();
+                        exsitingCustomer.LogIn();
+                        exsitingCustomer.ToString();
+                        Console.Clear();
 
-                    break;
-                //Avsluta programmet
-                case "0":
-                    break;
-                default:
-                    Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
-                    input = Console.ReadLine();
-                    break;
+                        break;
+                    //Avsluta programmet
+                    case "0":
+                        break;
+                    default:
+                        Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
+                        input = Console.ReadLine();
+                        break;
+                }
             }
+            
 
             Store store = new Store();
             meny.StoreDrawBox();
