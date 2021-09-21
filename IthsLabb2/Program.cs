@@ -10,6 +10,8 @@ namespace IthsLabb2
         {
             //Första menyn när man startar applikationen
             DrawBoxes meny = new DrawBoxes();
+            Store store = new Store();
+            Cart cart = new Cart();
             meny.DrawBoxMeny1();
             string input = Console.ReadLine();
             string username = "";
@@ -25,13 +27,42 @@ namespace IthsLabb2
                         Console.Clear();
                         newCustomer.CustomerCreation();
                         newCustomer.WelcomeMessage();
+                        meny.StoreDrawBox();
+                        input = Console.ReadLine();
+                        switch (input)
+                        {
+                            case "1":
+                                store.Products();
+                                input = Console.ReadLine();
+                                break;
+                            case "2":
+                                cart.ShowCart();
+                                break;
+                            case "0":
+                                meny.DrawBoxMeny1();
+                                break;
+                        }
                         break;
                     //Logga in kund    
                     case "2":
                         ExistingCustomer exsitingCustomer = new ExistingCustomer();
-                        var exsistingCustomers = new List<ExistingCustomer>();
                         exsitingCustomer.LogIn();
                         exsitingCustomer.ToString();
+                        meny.StoreDrawBox();
+                        input = Console.ReadLine();
+                        switch (input)
+                        {
+                            case "1":
+                                store.Products();
+                                input = Console.ReadLine();
+                                break;
+                            case "2":
+                                cart.ShowCart();
+                                break;
+                            case "0":
+                                meny.DrawBoxMeny1();
+                                break;
+                        }
                         Console.Clear();
 
                         break;
@@ -44,25 +75,8 @@ namespace IthsLabb2
                         break;
                 }
             }
+            Console.WriteLine("Hejdå!");
             
-
-            Store store = new Store();
-            meny.StoreDrawBox();
-            input = Console.ReadLine();
-
-            switch (input)
-            {
-                case "1":
-                    store.Products();
-                    break;
-                case "2":
-
-                    break;
-                case "3":
-
-                    break;
-            }
-
 
 
 

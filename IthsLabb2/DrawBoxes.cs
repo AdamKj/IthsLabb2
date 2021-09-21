@@ -51,7 +51,7 @@ namespace IthsLabb2
         public void StoreDrawBox(int width = 34, int height = 3)
         {
             Console.Clear();
-            Console.WriteLine("Välkommen till butiken! Välj nedan om du vill handla, gå till kundvagnen eller logga ut");
+            Console.WriteLine("Välkommen till butiken! Välj nedan om du vill Handla, gå till Kundvagnen eller Logga ut");
             Console.WriteLine("");
 
             //Skapar raden
@@ -60,7 +60,7 @@ namespace IthsLabb2
             //Skapar inre raderna
             string innerLine = "Tryck 1 för att Handla ";
             string innerLine1 = "Tryck 2 för att Gå till Kundvagnen";
-            string innerLine2 = "Tryck 3 för att Logga ut";
+            string innerLine2 = "Tryck 0 för att Logga ut";
 
             //Loopar igenom bredden
             for (int j = 0; j < width - 2; j++)

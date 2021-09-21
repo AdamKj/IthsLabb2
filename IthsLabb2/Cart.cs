@@ -10,5 +10,19 @@ namespace IthsLabb2
     {
         private List<Products> _cart;
         public List<Products> cart { get { return _cart; } }
+
+        public void ShowCart()
+        {
+            Console.WriteLine("Här är din kundvagn!");
+            Console.WriteLine("");
+
+            List<Products> productsList = new List<Products>();
+
+            foreach (var items in productsList)
+            {
+                Console.WriteLine(items);
+            }
+            Console.ReadKey();
+        }
     }
 }
