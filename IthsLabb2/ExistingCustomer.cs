@@ -34,6 +34,7 @@ namespace IthsLabb2
             Username = Console.ReadLine();
             Console.Write("Skriv nu in ditt lösenord: ");
             Password = Console.ReadLine();
+            ToString();
         }
 
         public override string ToString()
@@ -61,8 +62,6 @@ namespace IthsLabb2
                 Console.WriteLine($"Tyvärr finns inte {Username} registrerat. Vänligen registrera dig först.");
                 NewCustomer newCustomer = new NewCustomer(Username, Password);
                 newCustomer.CustomerCreation();
-                newCustomer.WelcomeMessage();
-
             }
             return "";
         }

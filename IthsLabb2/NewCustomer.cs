@@ -30,46 +30,32 @@ namespace IthsLabb2
         {
             while (Username == "Knatte" || Username == "Fnatte" || Username == "Tjatte")
             {
+                if (Username == "Knatte" && Password == "123")
+                {
+                    break;
+                }
+                else if (Username == "Fnatte" && Password == "321")
+                {
+                    break;
+                }
+                else if (Username == "Tjatte" && Password == "213")
+                {
+                    break;
+                }
+
                 Console.Write("Det här användarnamnet finns redan, vänligen skriv in ett nytt: ");
                 Username = Console.ReadLine();
                 Console.Write("Skriv nu in ditt lösenord: ");
                 Password = Console.ReadLine();
-
-                if (Username == "Knatte" || Username == "Fnatte" || Username == "Tjatte")
-                {
-                    Console.Write("Det här användarnamnet finns redan, vänligen skriv in ett nytt: ");
-                    Username = Console.ReadLine();
-                    Console.Write("Skriv nu in ditt lösenord: ");
-                    Password = Console.ReadLine();
-                }
-                else if (Username == "Knatte" || Username == "Fnatte" || Username == "Tjatte")
-                {
-                    Console.Write("Det här användarnamnet finns redan, vänligen skriv in ett nytt: ");
-                    Username = Console.ReadLine();
-                    Console.Write("Skriv nu in ditt lösenord: ");
-                    Password = Console.ReadLine();
-                }
-                else if (Username == "Knatte" || Username == "Fnatte" || Username == "Tjatte")
-                {
-                    Console.Write("Det här användarnamnet finns redan, vänligen skriv in ett nytt: ");
-                    Username = Console.ReadLine();
-                    Console.Write("Skriv nu in ditt lösenord: ");
-                    Password = Console.ReadLine();
-                } 
-                else
-                {
-
-                }
             }
-            
+            WelcomeMessage();
         }
-        
+
         public void WelcomeMessage()
         {
             Console.WriteLine($"Välkommen {Username}!");
-            Console.Write("Din profil är nu skapad och du kommer nu att forsätta till butiken! Tryck på valfri knapp för att fortsätta:");
+            Console.Write("Tryck på valfri tangent för att fortsätta till butiken: ");
             Console.ReadKey();
-        }   
-
+        }
     }
 }

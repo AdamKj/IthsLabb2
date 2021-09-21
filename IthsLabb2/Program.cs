@@ -26,7 +26,6 @@ namespace IthsLabb2
                         NewCustomer newCustomer = new NewCustomer(username, password);
                         Console.Clear();
                         newCustomer.CustomerCreation();
-                        newCustomer.WelcomeMessage();
                         meny.StoreDrawBox();
                         input = Console.ReadLine();
                         switch (input)
@@ -36,10 +35,16 @@ namespace IthsLabb2
                                 input = Console.ReadLine();
                                 break;
                             case "2":
+                                Console.Clear();
                                 cart.ShowCart();
                                 break;
-                            case "0":
+                            case "9":
+                                Console.Clear();
                                 meny.DrawBoxMeny1();
+                                break;
+                            default:
+                                Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
+                                input = Console.ReadLine();
                                 break;
                         }
                         break;
@@ -47,7 +52,7 @@ namespace IthsLabb2
                     case "2":
                         ExistingCustomer exsitingCustomer = new ExistingCustomer();
                         exsitingCustomer.LogIn();
-                        exsitingCustomer.ToString();
+                        //exsitingCustomer.ToString();
                         meny.StoreDrawBox();
                         input = Console.ReadLine();
                         switch (input)
@@ -57,14 +62,22 @@ namespace IthsLabb2
                                 input = Console.ReadLine();
                                 break;
                             case "2":
+                                Console.Clear();
                                 cart.ShowCart();
                                 break;
                             case "0":
                                 meny.DrawBoxMeny1();
                                 break;
+                            default:
+                                Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
+                                input = Console.ReadLine();
+                                break;
                         }
                         Console.Clear();
 
+                        break;
+                    case "9":
+                        input = Console.ReadLine();
                         break;
                     //Avsluta programmet
                     case "0":
