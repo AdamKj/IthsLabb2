@@ -26,7 +26,7 @@ namespace IthsLabb2
             //Skapar inre raderna
             string innerLine = "Tryck 1 för att Registrera dig";
             string innerLine1 = "Tryck 2 för att Logga in";
-            string innerLine2 = "Tryck 0 för att Avsluta";
+            string innerLine2 = "Skriv 'exit' för att Avsluta";
 
             //Loopar igenom bredden
             for (int j = 0; j < width - 2; j++)

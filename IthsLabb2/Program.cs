@@ -17,7 +17,7 @@ namespace IthsLabb2
             string username = "";
             string password = "";
 
-            while (input != "0")
+            while (input != "exit")
             {
                 switch (input)
                 {
@@ -32,15 +32,15 @@ namespace IthsLabb2
                         {
                             case "1":
                                 store.Products();
-                                input = Console.ReadLine();
+                                cart.ShowCart();
                                 break;
                             case "2":
-                                Console.Clear();
                                 cart.ShowCart();
                                 break;
                             case "9":
                                 Console.Clear();
                                 meny.DrawBoxMeny1();
+                                input = Console.ReadLine();
                                 break;
                             default:
                                 Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
@@ -48,6 +48,7 @@ namespace IthsLabb2
                                 break;
                         }
                         break;
+
                     //Logga in kund    
                     case "2":
                         ExistingCustomer exsitingCustomer = new ExistingCustomer();
@@ -59,35 +60,34 @@ namespace IthsLabb2
                         {
                             case "1":
                                 store.Products();
-                                input = Console.ReadLine();
-                                break;
-                            case "2":
-                                Console.Clear();
                                 cart.ShowCart();
                                 break;
-                            case "0":
+                            case "2":
+                                cart.ShowCart();
+                                break;
+                            case "9":
+                                Console.Clear();
                                 meny.DrawBoxMeny1();
+                                input = Console.ReadLine();
                                 break;
                             default:
-                                Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
+                                DefaultMessage();
                                 input = Console.ReadLine();
                                 break;
                         }
                         Console.Clear();
-
                         break;
                     case "9":
                         input = Console.ReadLine();
                         break;
-                    //Avsluta programmet
-                    case "0":
-                        break;
                     default:
-                        Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
+                        DefaultMessage();
                         input = Console.ReadLine();
                         break;
                 }
             }
+            //Avsluta programmet
+            Console.Clear();
             Console.WriteLine("Hejdå!");
             
 
@@ -95,6 +95,11 @@ namespace IthsLabb2
 
             Console.ReadKey();
 
+        }
+
+        public static void DefaultMessage()
+        {
+            Console.Write("Vänligen välj något av de ovanstående alternativen: ");
         }
     }
 }

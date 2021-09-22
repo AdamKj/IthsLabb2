@@ -19,7 +19,6 @@ namespace IthsLabb2
             Username = username;
             Password = password;
             _cart = new List<Products>();
-
         }
 
         public void CustomerCreation()

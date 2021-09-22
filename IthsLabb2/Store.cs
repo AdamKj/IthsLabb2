@@ -22,10 +22,9 @@ namespace IthsLabb2
             Console.WriteLine($"1. {productsList[0]}");
             Console.WriteLine($"2. {productsList[1]}");
             Console.WriteLine($"3. {productsList[2]}");
-            Console.WriteLine("Tryck på 0 för att gå tillbaka");
+            Console.WriteLine("Tryck på 0 för att gå till kundvagnen");
 
             string input = Console.ReadLine();
-            DrawBoxes meny = new DrawBoxes();
 
             while (input != "0")
             {
@@ -50,16 +49,12 @@ namespace IthsLabb2
                         Console.Write("Vad vill du handla här näst?: ");
                         input = Console.ReadLine();
                         break;
-                    case "0":
-                        break;
                     default:
                         Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
                         input = Console.ReadLine();
                         break;
                 }
             }
-            meny.StoreDrawBox();
-            input = Console.ReadLine();
         }
 
         public void Banan()
@@ -126,7 +121,7 @@ namespace IthsLabb2
         {
             Console.WriteLine("Vill du handla mer eller gå tillbaka?");
             Console.WriteLine("4. För att Handla mer");
-            Console.WriteLine("0. För att gå tillbaka");
+            Console.WriteLine("0. För att gå till kundvagnen");
         }
     }
 }
