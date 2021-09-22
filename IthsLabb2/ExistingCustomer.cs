@@ -9,22 +9,28 @@ namespace IthsLabb2
     class ExistingCustomer
     {
         public string Username { get; set; }
-        public string Password { get; set; }
+        public string Password { get; private set; }
+
+        private List<Products> _cart;
+        public List<Products> cart { get { return _cart; } set { _cart = value; } }
 
         public void Knatte(string username = "Knatte", string password = "123")
         {
             Username = username;
             Password = password;
+            _cart = new List<Products>();
         }
         public void Fnatte(string username = "Fnatte", string password = "321")
         {
             Username = username;
             Password = password;
+            _cart = new List<Products>();
         }
         public void Tjatte(string username = "Tjatte", string password = "213")
         {
             Username = username;
             Password = password;
+            _cart = new List<Products>();
         }
 
         public void LogIn()

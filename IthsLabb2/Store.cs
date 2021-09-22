@@ -25,6 +25,7 @@ namespace IthsLabb2
             Console.WriteLine("Tryck på 0 för att gå tillbaka");
 
             string input = Console.ReadLine();
+            DrawBoxes meny = new DrawBoxes();
 
             while (input != "0")
             {
@@ -57,8 +58,8 @@ namespace IthsLabb2
                         break;
                 }
             }
-            DrawBoxes meny = new DrawBoxes();
             meny.StoreDrawBox();
+            input = Console.ReadLine();
         }
 
         public void Banan()

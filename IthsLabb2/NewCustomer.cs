@@ -9,12 +9,17 @@ namespace IthsLabb2
     class NewCustomer
     {
         public string Username { get; set; }
-        public string Password { get; set; }
+        public string Password { get; private set; }
+
+        private List<Products> _cart;
+        public List<Products> cart { get { return _cart; } set { _cart = value; } }
 
         public NewCustomer(string username, string password)
         {
             Username = username;
             Password = password;
+            _cart = new List<Products>();
+
         }
 
         public void CustomerCreation()

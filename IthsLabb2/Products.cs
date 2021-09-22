@@ -9,8 +9,6 @@ namespace IthsLabb2
     class Products
     {
         public string Product { get; set; }
-        public string Product2 { get; set; }
-        public string Product3 { get; set; }
 
         public override string ToString()
         {
