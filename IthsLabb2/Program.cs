@@ -8,13 +8,6 @@ namespace IthsLabb2
 
         static void Main(string[] args)
         {
-            var customerKnatte = new Customer("Knatte", "123");
-            var customerFnatte = new Customer("Fnatte", "321");
-            var customerTjatte = new Customer("Tjatte", "231");
-            CheckCustomer addCustomer = new();
-            addCustomer.exsistingCustomer.Add(customerKnatte);
-            addCustomer.exsistingCustomer.Add(customerFnatte);
-            addCustomer.exsistingCustomer.Add(customerTjatte);
             DrawBoxes meny = new();
             Store store = new();
             Cart cart = new();
@@ -38,7 +31,7 @@ namespace IthsLabb2
                         switch (input)
                         {
                             case "1":
-                                store.Products();
+                                customer.Products();
                                 cart.ShowCart();
                                 break;
                             case "2":
@@ -58,14 +51,13 @@ namespace IthsLabb2
 
                     //Logga in kund    
                     case "2":
-                        Customer exsistingCustomer = new(username, password);
-                        exsistingCustomer.LogIn();
+                        customer.LogIn();
                         meny.StoreDrawBox();
                         input = Console.ReadLine();
                         switch (input)
                         {
                             case "1":
-                                store.Products();
+                                customer.Products();
                                 cart.ShowCart();
                                 break;
                             case "2":
@@ -95,12 +87,7 @@ namespace IthsLabb2
             //Avsluta programmet
             Console.Clear();
             Console.WriteLine("Hejdå!");
-            
-
-
-
             Console.ReadKey();
-
         }
 
         public static void DefaultMessage()

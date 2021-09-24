@@ -27,7 +27,9 @@ namespace IthsLabb2
             Console.WriteLine("Tryck 3 för att Logga ut");
 
             string input = Console.ReadLine();
-            Store store = new Store();
+            string s = "";
+            string n = "";
+            Customer store = new Customer(s,n);
             DrawBoxes meny = new DrawBoxes();
 
             switch (input)

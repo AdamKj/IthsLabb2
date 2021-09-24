@@ -8,15 +8,13 @@ namespace IthsLabb2
 {
     class Products
     {
-        public string Apple { get; set; }
-        public string Pear { get; set; }
-        public string Banana { get; set; }
+        public string Product { get; set; }
+        public double Price { get; set; }
 
-        public Products(string apple, string pear, string banana)
+        public Products(string product, double price)
         {
-            Apple = apple;
-            Pear = pear;
-            Banana = banana;
+            Product = product;
+            Price = price;
         }
     }
 }
