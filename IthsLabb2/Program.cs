@@ -8,14 +8,16 @@ namespace IthsLabb2
 
         static void Main(string[] args)
         {
-            //Första menyn när man startar applikationen
-            DrawBoxes meny = new DrawBoxes();
-            Store store = new Store();
-            Cart cart = new Cart();
-            meny.DrawBoxMeny1();
-            string input = Console.ReadLine();
+            DrawBoxes meny = new();
+            Store store = new();
+            Cart cart = new();
             string username = "";
             string password = "";
+            Customer customer = new(username, password);
+
+            //Första menyn när man startar applikationen
+            meny.DrawBoxMeny1();
+            string input = Console.ReadLine();
 
             while (input != "exit")
             {
@@ -23,9 +25,7 @@ namespace IthsLabb2
                 {
                     //Registrera ny kund
                     case "1":
-                        NewCustomer newCustomer = new NewCustomer(username, password);
-                        Console.Clear();
-                        newCustomer.CustomerCreation();
+                        customer.CustomerCreation();
                         meny.StoreDrawBox();
                         input = Console.ReadLine();
                         switch (input)
@@ -51,9 +51,8 @@ namespace IthsLabb2
 
                     //Logga in kund    
                     case "2":
-                        ExistingCustomer exsitingCustomer = new ExistingCustomer();
+                        Customer exsitingCustomer = new(username, password);
                         exsitingCustomer.LogIn();
-                        //exsitingCustomer.ToString();
                         meny.StoreDrawBox();
                         input = Console.ReadLine();
                         switch (input)

@@ -8,20 +8,23 @@ namespace IthsLabb2
 {
     class Store
     {
+        public static List<Customer> existingCustomer = new() { new Customer("Knatte", "123"), new Customer("Fnatte", "321"), new Customer("Tjatte", "213") };
+        
+
         public void Products()
         {
+            string apple = "Äpple";
+            string banana = "Banan";
+            string pear = "Päron";
+            Products products = new(apple, pear, banana);
+            
             Console.Clear();
             Console.WriteLine("Välkommen till våra varor! Välj nedan vad du vill köpa");
             Console.WriteLine("");
 
-            List<Products> productsList = new List<Products>();
-            productsList.Add(new Products() { Product = "Banan" });
-            productsList.Add(new Products() { Product = "Äpple" });
-            productsList.Add(new Products() { Product = "Päron" });
-
-            Console.WriteLine($"1. {productsList[0]}");
-            Console.WriteLine($"2. {productsList[1]}");
-            Console.WriteLine($"3. {productsList[2]}");
+            Console.WriteLine($"1. {products.Banana}");
+            Console.WriteLine($"2. {products.Apple}");
+            Console.WriteLine($"3. {products.Pear}");
             Console.WriteLine("Tryck på 0 för att gå till kundvagnen");
 
             string input = Console.ReadLine();
@@ -74,10 +77,6 @@ namespace IthsLabb2
             }
             int sum = input * banan;
             Console.WriteLine($"Du har köpt {input}st bananer som totalt kostar {sum}kr");
-            Cart numberOfItems = new Cart();
-            Cart sumOfItems = new Cart();
-            //sumOfItems.cart += sum;
-            //numberOfItems.cart += input;
             
         }
         public void Äpple()

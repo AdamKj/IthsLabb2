@@ -14,8 +14,6 @@ namespace IthsLabb2
             Console.WriteLine("Här är din kundvagn!");
             Console.WriteLine("");
 
-            ExistingCustomer customerCart = new ExistingCustomer();
-            customerCart.Knatte();
             Console.WriteLine("");
             Console.WriteLine("Vill du Betala och lämna butiken, Handla mer eller Logga ut?");
             Console.WriteLine("");
@@ -35,6 +33,7 @@ namespace IthsLabb2
             switch (input)
             {
                 case "1":
+
                     break;
                 case "2":
                     store.Products();

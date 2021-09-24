@@ -8,11 +8,15 @@ namespace IthsLabb2
 {
     class Products
     {
-        public string Product { get; set; }
+        public string Apple { get; set; }
+        public string Pear { get; set; }
+        public string Banana { get; set; }
 
-        public override string ToString()
+        public Products(string apple, string pear, string banana)
         {
-            return Product;
+            Apple = apple;
+            Pear = pear;
+            Banana = banana;
         }
     }
 }
