@@ -8,6 +8,13 @@ namespace IthsLabb2
 
         static void Main(string[] args)
         {
+            var customerKnatte = new Customer("Knatte", "123");
+            var customerFnatte = new Customer("Fnatte", "321");
+            var customerTjatte = new Customer("Tjatte", "231");
+            CheckCustomer addCustomer = new();
+            addCustomer.exsistingCustomer.Add(customerKnatte);
+            addCustomer.exsistingCustomer.Add(customerFnatte);
+            addCustomer.exsistingCustomer.Add(customerTjatte);
             DrawBoxes meny = new();
             Store store = new();
             Cart cart = new();
@@ -51,8 +58,8 @@ namespace IthsLabb2
 
                     //Logga in kund    
                     case "2":
-                        Customer exsitingCustomer = new(username, password);
-                        exsitingCustomer.LogIn();
+                        Customer exsistingCustomer = new(username, password);
+                        exsistingCustomer.LogIn();
                         meny.StoreDrawBox();
                         input = Console.ReadLine();
                         switch (input)

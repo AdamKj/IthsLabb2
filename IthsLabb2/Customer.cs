@@ -14,8 +14,6 @@ namespace IthsLabb2
         private List<Products> _cart;
         public List<Products> cart { get { return _cart; } set { _cart = value; } }
 
-        public static List<string> existingCustomer = new() { "Knatte", "123", "Fnatte", "321", "Tjatte", "213" };
-
         public Customer(string username, string password)
         {
             Username = username;
@@ -30,35 +28,6 @@ namespace IthsLabb2
             Username = Console.ReadLine();
             Console.Write("Skriv nu in ditt lösenord: ");
             Password = Console.ReadLine();
-
-            foreach (var customer in existingCustomer)
-            {
-                if (existingCustomer.Contains(Username))
-                {
-                    //if (existingCustomer.Password == Password)
-                    //{
-                    //    Console.WriteLine($"Välkommen {Username}!");
-                    //    break;
-                    //}
-                    //else if (customer.Password != Password)
-                    //{
-                    //    while (customer.Password != Password)
-                    //    {
-                    //        Console.WriteLine("Tyvärr var det fel lösenord, försök igen: ");
-                    //        Password = Console.ReadLine();
-                    //    }
-                    //    break;
-                    //}
-                }
-                else if (customer.Username != Username)
-                {
-                    Console.Write($"Tyvärr finns inte {Username} registrerat. Vänligen tryck på valfri knapp för att registrera dig: ");
-                    Console.ReadKey();
-                    CustomerCreation();
-                }
-            }
-            Console.Write($"Välkommen {Username}! Tryck på valfri knapp för att forsätta till butiken: ");
-            Console.ReadKey();
         }
 
         public void CustomerCreation()
