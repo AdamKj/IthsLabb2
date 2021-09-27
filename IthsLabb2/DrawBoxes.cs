@@ -49,6 +49,11 @@ namespace IthsLabb2
             Console.WriteLine(line);
         }
 
+        /// <summary>
+        /// Butiks menyn
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
         public void StoreDrawBox(int width = 34, int height = 3)
         {
             Console.Clear();

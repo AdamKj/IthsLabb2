@@ -42,7 +42,7 @@ namespace IthsLabb2
             //Loop som kollar om användarnamn och/eller lösenord stämmer överens med befintliga användare i användarlistan
             foreach (var customer in exsistingCustomers)
             {
-                if (username == customer.Username)
+                if (customer.Username.Contains(username))
                 {
                     if (password == customer.Password)
                     {
@@ -51,7 +51,7 @@ namespace IthsLabb2
                         Console.Write("Tryck på valfri tangent för att fortsätta till butiken:");
                         Console.ReadKey();
                         break;
-                    } 
+                    }
                     else
                     {
                         while (password != customer.Password)
@@ -59,14 +59,14 @@ namespace IthsLabb2
                             Console.Write("Tyvärr var det fel lösenord. Försök igen: ");
                             password = Console.ReadLine();
                         }
-                        Console.WriteLine($"Välkommen {username}!");
                         CurrentCustomer = customer;
+                        Console.WriteLine($"Välkommen {username}!");
                         Console.Write("Tryck på valfri tangent för att fortsätta till butiken:");
                         Console.ReadKey();
                         break;
                     }
                 }
-                else if (username != customer.Username)
+                else
                 {
                     Console.Write("Det här användarnamnet finns inte registrerat. Tryck på valfri knapp för att registrera dig: ");
                     Console.ReadKey();
@@ -95,6 +95,15 @@ namespace IthsLabb2
                     Console.ReadKey();
                     LogIn();
                     break;
+                }
+                else if (username == "" && password == "")
+                {
+                    Console.WriteLine("Användarnamn och lösenord kan inte vara tomma tecken. Vänligen försök igen");
+                    Console.Write("Användarnamn: ");
+                    username = Console.ReadLine();
+                    Console.Write("Lösenord: ");
+                    password = Console.ReadLine();
+                    continue;
                 }
                 else
                 {
@@ -237,6 +246,11 @@ namespace IthsLabb2
             Console.WriteLine("Vill du handla mer eller gå tillbaka?");
             Console.WriteLine("4. För att Handla mer");
             Console.WriteLine("0. För att gå till kundvagnen");
+        }
+
+        public override string ToString()
+        {
+            return Username.ToString() + Password.ToString() + CurrentCustomer.cart.ToString();
         }
     }
 }

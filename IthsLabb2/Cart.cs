@@ -8,6 +8,9 @@ namespace IthsLabb2
 {
     class Cart
     {
+        /// <summary>
+        /// Metod för att välja vad man vill göra härnäst när man är i kundvagnen
+        /// </summary>
         public void CartAction()
         {
             Console.WriteLine("Tryck 1 för att Betala och lämna butiken");
@@ -107,6 +110,9 @@ namespace IthsLabb2
             
         }
 
+        /// <summary>
+        /// Metod för att betala sina varor och stänga ner programmet
+        /// </summary>
         public void CheckOut()
         {
             Console.Clear();
