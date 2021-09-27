@@ -8,18 +8,6 @@ namespace IthsLabb2
 {
     class Cart
     {
-        public void ShowCart()
-        {
-            Console.Clear();
-            Console.WriteLine("Här är din kundvagn!");
-            Console.WriteLine("");
-
-            Console.WriteLine("");
-            Console.WriteLine("Vill du Betala och lämna butiken, Handla mer eller Logga ut?");
-            Console.WriteLine("");
-            CartAction();
-        }
-
         public void CartAction()
         {
             Console.WriteLine("Tryck 1 för att Betala och lämna butiken");
@@ -29,27 +17,103 @@ namespace IthsLabb2
             string input = Console.ReadLine();
             string s = "";
             string n = "";
-            Customer store = new Customer(s,n);
+            Customer customer = new Customer(s,n);
             DrawBoxes meny = new DrawBoxes();
 
-            switch (input)
+            while (input != "1" || input != "2" || input != "3")
             {
-                case "1":
+                switch (input)
+                {
+                    case "1":
+                        CheckOut();
+                        break;
+                    case "2":
+                        customer.Products();
+                        customer.ShowCart();
+                        CartAction();
+                        break;
+                    case "3":
+                        meny.DrawBoxMeny1();
+                        input = Console.ReadLine();
+                        switch (input)
+                        {
+                            case "1":
+                                customer.CustomerCreation();
+                                meny.StoreDrawBox();
+                                input = Console.ReadLine();
+                                switch (input)
+                                {
+                                    case "1":
+                                        customer.Products();
+                                        customer.ShowCart();
+                                        CartAction();
+                                        break;
+                                    case "2":
+                                        customer.ShowCart();
+                                        CartAction();
+                                        break;
+                                    case "9":
+                                        Console.Clear();
+                                        meny.DrawBoxMeny1();
+                                        input = Console.ReadLine();
+                                        break;
+                                    default:
+                                        while (input != "1" || input != "2" || input != "9")
+                                        {
+                                            Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
+                                            input = Console.ReadLine();
+                                        }
+                                        break;
+                                }
+                                break;
+                            case "2":
+                                customer.LogIn();
+                                meny.StoreDrawBox();
+                                input = Console.ReadLine();
+                                switch (input)
+                                {
+                                    case "1":
+                                        customer.Products();
+                                        customer.ShowCart();
+                                        CartAction();
+                                        break;
+                                    case "2":
+                                        customer.ShowCart();
+                                        CartAction();
+                                        break;
+                                    case "9":
+                                        Console.Clear();
+                                        meny.DrawBoxMeny1();
+                                        input = Console.ReadLine();
+                                        break;
+                                    default:
+                                        while (input != "1" || input != "2" || input != "9")
+                                        {
+                                            Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
+                                            input = Console.ReadLine();
+                                        }
+                                        break;
+                                }
+                                break;
+                        }
 
-                    break;
-                case "2":
-                    store.Products();
-                    break;
-                case "3":
-                    Console.Clear();
-                    meny.DrawBoxMeny1();
-                    input = Console.ReadLine();
-                    break;
-                default:
-                    Console.WriteLine("Vänligen välj en av de ovanstående alternativen");
-                    input = Console.ReadLine();
-                    break;
+                        break;
+                    default:
+                        Console.WriteLine("Vänligen välj en av de ovanstående alternativen");
+                        input = Console.ReadLine();
+                        break;
+                }
             }
+            
         }
+
+        public void CheckOut()
+        {
+            Console.Clear();
+            Console.Write("Tack för besöket! Tryck på valfri knapp för att lämna butiken: ");
+            Console.ReadKey();
+            Environment.Exit(0);
+        }
+
     }
 }

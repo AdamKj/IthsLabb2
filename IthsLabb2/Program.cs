@@ -9,7 +9,6 @@ namespace IthsLabb2
         static void Main(string[] args)
         {
             DrawBoxes meny = new();
-            Store store = new();
             Cart cart = new();
             string username = "";
             string password = "";
@@ -32,18 +31,19 @@ namespace IthsLabb2
                         {
                             case "1":
                                 customer.Products();
-                                cart.ShowCart();
+                                customer.ShowCart();
+                                cart.CartAction();
                                 break;
                             case "2":
-                                cart.ShowCart();
+                                customer.ShowCart();
+                                cart.CartAction();
                                 break;
                             case "9":
-                                Console.Clear();
                                 meny.DrawBoxMeny1();
                                 input = Console.ReadLine();
                                 break;
                             default:
-                                Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
+                                DefaultMessage();
                                 input = Console.ReadLine();
                                 break;
                         }
@@ -58,13 +58,14 @@ namespace IthsLabb2
                         {
                             case "1":
                                 customer.Products();
-                                cart.ShowCart();
+                                customer.ShowCart();
+                                cart.CartAction();
                                 break;
                             case "2":
-                                cart.ShowCart();
+                                customer.ShowCart();
+                                cart.CartAction();
                                 break;
                             case "9":
-                                Console.Clear();
                                 meny.DrawBoxMeny1();
                                 input = Console.ReadLine();
                                 break;

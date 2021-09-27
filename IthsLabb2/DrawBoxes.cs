@@ -15,6 +15,7 @@ namespace IthsLabb2
         /// <param name="height"></param>
         public void DrawBoxMeny1(int width = 30, int height = 3)
         {
+            Console.Clear();
             Console.WriteLine("Hejsan och välkommen!");
             Console.WriteLine("Om du är medlem skriv in '2'.");
             Console.WriteLine("Om du inte är medlem, vänligen skriv in '1' för att skapa din profil!");
