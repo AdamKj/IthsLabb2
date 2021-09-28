@@ -36,6 +36,7 @@ namespace IthsLabb2
                         CartAction();
                         break;
                     case "3":
+                        customer.cart.Clear();
                         meny.DrawBoxMeny1();
                         input = Console.ReadLine();
                         switch (input)
@@ -99,21 +100,31 @@ namespace IthsLabb2
                                 }
                                 break;
                         }
-
                         break;
                     default:
-                        Console.WriteLine("Vänligen välj en av de ovanstående alternativen");
-                        input = Console.ReadLine();
+                        if (input == "exit")
+                        {
+                            //Avsluta programmet
+                            Console.Clear();
+                            Console.WriteLine("Hejdå!");
+                            Console.ReadKey();
+                            Environment.Exit(0);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Vänligen välj en av de ovanstående alternativen");
+                            input = Console.ReadLine();
+                        }
                         break;
                 }
             }
-            
+
         }
 
         /// <summary>
         /// Metod för att betala sina varor och stänga ner programmet
         /// </summary>
-        public void CheckOut()
+        public static void CheckOut()
         {
             Console.Clear();
             Console.Write("Tack för besöket! Tryck på valfri knapp för att lämna butiken: ");

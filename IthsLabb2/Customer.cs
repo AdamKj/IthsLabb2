@@ -38,35 +38,51 @@ namespace IthsLabb2
             string username = Console.ReadLine();
             Console.Write("Skriv nu in ditt lösenord: ");
             string password = Console.ReadLine();
+            bool found = false;
 
-            //Loop som kollar om användarnamn och/eller lösenord stämmer överens med befintliga användare i användarlistan
-            foreach (var customer in exsistingCustomers)
+            //Loopar igenom de befintliga användarna i listan och jämför om det inmatade användarnamnet existerar eller ej
+            for (int i = 0; i <= exsistingCustomers.Count; i++)
             {
-                if (customer.Username.Contains(username))
+                for (int j = 0; j < exsistingCustomers.Count; j++)
                 {
-                    if (password == customer.Password)
+                    Customer customer = exsistingCustomers[j];
+                    //Om det inmatade användarnamnet är ett befintligt namn i listan
+                    if (customer.Username.Contains(username))
                     {
-                        CurrentCustomer = customer;
-                        Console.WriteLine($"Välkommen {username}!");
-                        Console.Write("Tryck på valfri tangent för att fortsätta till butiken:");
-                        Console.ReadKey();
-                        break;
-                    }
-                    else
-                    {
-                        while (password != customer.Password)
+                        //Om det inmatade lösenordet passar in till den befintliga användarens lösenord
+                        if (password == customer.Password)
                         {
-                            Console.Write("Tyvärr var det fel lösenord. Försök igen: ");
-                            password = Console.ReadLine();
+                            found = true;
+                            CurrentCustomer = customer;
+                            Console.WriteLine($"Välkommen {username}!");
+                            Console.Write("Tryck på valfri tangent för att fortsätta till butiken:");
+                            Console.ReadKey();
+                            break;
                         }
-                        CurrentCustomer = customer;
-                        Console.WriteLine($"Välkommen {username}!");
-                        Console.Write("Tryck på valfri tangent för att fortsätta till butiken:");
-                        Console.ReadKey();
-                        break;
+                        else
+                        {
+                            //Loopar igenom inmatning tills man skrivit rätt lösenord
+                            while (password != customer.Password)
+                            {
+                                Console.Write("Tyvärr var det fel lösenord. Försök igen: ");
+                                password = Console.ReadLine();
+                            }
+                            found = true;
+                            CurrentCustomer = customer;
+                            Console.WriteLine($"Välkommen {username}!");
+                            Console.Write("Tryck på valfri tangent för att fortsätta till butiken:");
+                            Console.ReadKey();
+                            break;
+                        }
                     }
                 }
-                else
+                //För att bryta sig ur metoden om inmatande användarnamn och lösenord matchar befintlig användare
+                if (found == true)
+                {
+                    break;
+                }
+                //Om inmatande användarnamn inte existerar får man skapa ny profil
+                else if (found != true)
                 {
                     Console.Write("Det här användarnamnet finns inte registrerat. Tryck på valfri knapp för att registrera dig: ");
                     Console.ReadKey();
@@ -86,26 +102,53 @@ namespace IthsLabb2
             string username = Console.ReadLine();
             Console.Write("Skriv nu in ett lösenord: ");
             string password = Console.ReadLine();
-            
-            foreach (var customer2 in exsistingCustomers)
+            bool loop = false;
+
+            //Loopar igenom de befintliga användarna i listan och jämför om det inmatade användarnamnet existerar eller ej
+            for (int i = 0; i <= exsistingCustomers.Count; i++)
             {
-                if (customer2.Username == username)
+                for (int j = 0; j < exsistingCustomers.Count; j++)
                 {
-                    Console.Write("Det här användarnamnet finns redan. Tryck på valfri knapp för att logga in: ");
-                    Console.ReadKey();
-                    LogIn();
+                    Customer customers = exsistingCustomers[j];
+                    //Om det inmatade namnet finns i listan, blir man ombedd att logga in istället
+                    if (username == customers.Username)
+                    {
+                        loop = true;
+                        Console.Write("Det här användarnamnet finns redan. Tryck på valfri knapp för att logga in: ");
+                        Console.ReadKey();
+                        LogIn();
+                    }
+                    //Om man anger att namn och lösenord är tomt
+                    else if (username.Trim() == String.Empty || password.Trim() == String.Empty)
+                    {
+                        Console.WriteLine("Användarnamn och lösenord kan inte vara tomma tecken. Vänligen försök igen");
+                        Console.Write("Användarnamn: ");
+                        username = Console.ReadLine();
+                        Console.Write("Lösenord: ");
+                        password = Console.ReadLine();
+
+                        //Om det inmatande namnet man skriver in redan är någon av de befintliga användarna
+                        if (username == "Knatte" || username == "Fnatte" || username == "Tjatte")
+                        {
+                            loop = true;
+                            Console.Write("Det här användarnamnet finns redan. Tryck på valfri knapp för att logga in: ");
+                            Console.ReadKey();
+                            LogIn();
+                        }
+                    }
+                }
+                //För att bryta sig ur hela metoden om inmatande användarnamn och lösenord matchar befintlig användare
+                if (loop == true)
+                {
                     break;
                 }
-                else if (username == "" && password == "")
+                //Om användarnamn fortfarande är tomt, itererar den om igen
+                else if (username.Trim() == String.Empty)
                 {
-                    Console.WriteLine("Användarnamn och lösenord kan inte vara tomma tecken. Vänligen försök igen");
-                    Console.Write("Användarnamn: ");
-                    username = Console.ReadLine();
-                    Console.Write("Lösenord: ");
-                    password = Console.ReadLine();
                     continue;
                 }
-                else
+                //Annars om de inmatade användarnamnet inte finns, skapas profilen
+                else if (loop != true)
                 {
                     var newCustomer = new Customer(username, password);
                     exsistingCustomers.Add(newCustomer);
@@ -116,8 +159,6 @@ namespace IthsLabb2
                     break;
                 }
             }
-
-            
         }
 
         /// <summary>
@@ -226,16 +267,24 @@ namespace IthsLabb2
             var sumPear = products[2].Price * pear;
             double totalSum = sumBanana + sumApple + sumPear;
 
-            Console.WriteLine("Här är din kundvagn!");
-            Console.WriteLine("");
-            Console.WriteLine($"Du har {banana}st bananer i kundvagnen á 17kr/st. Totalt: {sumBanana}kr");
-            Console.WriteLine($"Du har {apple}st äpplen i kundvagnen á 9kr/st. Totalt: {sumApple}kr");
-            Console.WriteLine($"Du har {pear}st päron i kundvagnen á 26kr/st. Totalt: {sumPear}kr");
-            Console.WriteLine("");
-            Console.WriteLine($"Totalt är din kundvagn {totalSum}kr.");
-            Console.WriteLine("");
-            Console.WriteLine("Vill du Betala och lämna butiken, Handla mer eller Logga ut?");
-            Console.WriteLine("");
+            if (totalSum == 0)
+            {
+                Console.WriteLine("Din kundvagn är tom! Vänligen handla valfria produkter om du vill se din kundvagn!");
+                Console.WriteLine("");
+            }
+            else
+            {
+                Console.WriteLine("Här är din kundvagn!");
+                Console.WriteLine("");
+                Console.WriteLine($"Du har {banana}st bananer i kundvagnen á 17kr/st. Totalt: {sumBanana}kr");
+                Console.WriteLine($"Du har {apple}st äpplen i kundvagnen á 9kr/st. Totalt: {sumApple}kr");
+                Console.WriteLine($"Du har {pear}st päron i kundvagnen á 26kr/st. Totalt: {sumPear}kr");
+                Console.WriteLine("");
+                Console.WriteLine($"Totalt är din kundvagn {totalSum}kr.");
+                Console.WriteLine("");
+                Console.WriteLine("Vill du Betala och lämna butiken, Handla mer eller Logga ut?");
+                Console.WriteLine("");
+            }
         }
 
         /// <summary>

@@ -74,10 +74,6 @@ namespace IthsLabb2
                                 input = Console.ReadLine();
                                 break;
                         }
-                        Console.Clear();
-                        break;
-                    case "9":
-                        input = Console.ReadLine();
                         break;
                     default:
                         DefaultMessage();
