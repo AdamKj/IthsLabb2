@@ -46,9 +46,19 @@ namespace IthsLabb2
                 for (int j = 0; j < exsistingCustomers.Count; j++)
                 {
                     Customer customer = exsistingCustomers[j];
-                    //Om det inmatade användarnamnet är ett befintligt namn i listan
-                    if (customer.Username.Contains(username))
+                    //Om man skriver in en tom sträng
+                    if (username.Trim() == String.Empty)
                     {
+                        Console.WriteLine("Användarnamn kan inte vara tomt. Försök igen");
+                        Console.Write("Användarnamn: ");
+                        username = Console.ReadLine();
+                        Console.Write("Lösenord: ");
+                        password = Console.ReadLine();
+                    }
+                    //Om det inmatade användarnamnet är ett befintligt namn i listan
+                    else if (username == "Knatte" || username == "Fnatte" || username == "Tjatte" || customer.Username == username)
+                    {
+                        
                         //Om det inmatade lösenordet passar in till den befintliga användarens lösenord
                         if (password == customer.Password)
                         {
@@ -76,8 +86,12 @@ namespace IthsLabb2
                         }
                     }
                 }
+                if (username.Trim() == String.Empty)
+                {
+                    continue;
+                }
                 //För att bryta sig ur metoden om inmatande användarnamn och lösenord matchar befintlig användare
-                if (found == true)
+                else if (found == true)
                 {
                     break;
                 }
@@ -105,18 +119,19 @@ namespace IthsLabb2
             bool loop = false;
 
             //Loopar igenom de befintliga användarna i listan och jämför om det inmatade användarnamnet existerar eller ej
-            for (int i = 0; i <= exsistingCustomers.Count; i++)
+            for (int i = 0; i >= 0; i++)
             {
                 for (int j = 0; j < exsistingCustomers.Count; j++)
                 {
                     Customer customers = exsistingCustomers[j];
                     //Om det inmatade namnet finns i listan, blir man ombedd att logga in istället
-                    if (username == customers.Username)
+                    if (username.Trim() == customers.Username)
                     {
                         loop = true;
                         Console.Write("Det här användarnamnet finns redan. Tryck på valfri knapp för att logga in: ");
                         Console.ReadKey();
                         LogIn();
+                        break;
                     }
                     //Om man anger att namn och lösenord är tomt
                     else if (username.Trim() == String.Empty || password.Trim() == String.Empty)
@@ -128,7 +143,7 @@ namespace IthsLabb2
                         password = Console.ReadLine();
 
                         //Om det inmatande namnet man skriver in redan är någon av de befintliga användarna
-                        if (username == "Knatte" || username == "Fnatte" || username == "Tjatte")
+                        if (username.Trim() == "Knatte" || username.Trim() == "Fnatte" || username.Trim() == "Tjatte")
                         {
                             loop = true;
                             Console.Write("Det här användarnamnet finns redan. Tryck på valfri knapp för att logga in: ");
