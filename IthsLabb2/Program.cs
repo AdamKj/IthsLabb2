@@ -24,52 +24,58 @@ namespace IthsLabb2
                         customer.CustomerCreation();
                         meny.StoreDrawBox();
                         input = Console.ReadLine();
-                        switch (input)
+                        while (input != "1" || input != "2" || input != "9")
                         {
-                            case "1":
-                                customer.Products();
-                                customer.ShowCart();
-                                cart.CartAction();
-                                break;
-                            case "2":
-                                customer.ShowCart();
-                                cart.CartAction();
-                                break;
-                            case "9":
-                                meny.DrawBoxMeny1();
-                                input = Console.ReadLine();
-                                break;
-                            default:
-                                DefaultMessage();
-                                input = Console.ReadLine();
-                                break;
+                            switch (input)
+                            {
+                                case "1":
+                                    customer.Products();
+                                    customer.ShowCart();
+                                    cart.CartAction();
+                                    break;
+                                case "2":
+                                    customer.ShowCart();
+                                    cart.CartAction();
+                                    break;
+                                case "9":
+                                    meny.DrawBoxMeny1();
+                                    input = Console.ReadLine();
+                                    break;
+                                default:
+                                    DefaultMessage();
+                                    input = Console.ReadLine();
+                                    break;
+                            }
                         }
                         break;
-
+                        
                     //Logga in kund    
                     case "2":
                         customer.LogIn();
                         meny.StoreDrawBox();
                         input = Console.ReadLine();
-                        switch (input)
+                        while (input != "1" || input != "2" || input != "9")
                         {
-                            case "1":
-                                customer.Products();
-                                customer.ShowCart();
-                                cart.CartAction();
-                                break;
-                            case "2":
-                                customer.ShowCart();
-                                cart.CartAction();
-                                break;
-                            case "9":
-                                meny.DrawBoxMeny1();
-                                input = Console.ReadLine();
-                                break;
-                            default:
-                                DefaultMessage();
-                                input = Console.ReadLine();
-                                break;
+                            switch (input)
+                            {
+                                case "1":
+                                    customer.Products();
+                                    customer.ShowCart();
+                                    cart.CartAction();
+                                    break;
+                                case "2":
+                                    customer.ShowCart();
+                                    cart.CartAction();
+                                    break;
+                                case "9":
+                                    meny.DrawBoxMeny1();
+                                    input = Console.ReadLine();
+                                    break;
+                                default:
+                                    DefaultMessage();
+                                    input = Console.ReadLine();
+                                    break;
+                            }
                         }
                         break;
                     default:
