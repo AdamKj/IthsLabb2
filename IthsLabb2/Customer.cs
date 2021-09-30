@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IthsLabb2
 {
@@ -10,7 +7,6 @@ namespace IthsLabb2
     {
         public string Username { get; private set; }
         private string Password { get; set; }
-        public double Total { get; set; }
 
         private List<Products> _cart;
         public List<Products> cart { get { return _cart; } set { _cart = value; } }
@@ -19,13 +15,20 @@ namespace IthsLabb2
 
         static List<Customer> exsistingCustomers = new() { new Customer("Knatte", "123"), new Customer("Fnatte", "321"), new Customer("Tjatte", "213") };
 
-        static Customer CurrentCustomer;
+        public static Customer CurrentCustomer;
 
         public Customer(string username, string password)
         {
             Username = username;
             Password = password;
             cart = new List<Products>();
+        }
+        /// <summary>
+        /// Använder mig av en tom konstruktor för att kunna återkalla i andra klasser utan några parametrar
+        /// </summary>
+        public Customer()
+        {
+
         }
 
         /// <summary>
@@ -56,7 +59,7 @@ namespace IthsLabb2
                         password = Console.ReadLine();
                     }
                     //Om det inmatade användarnamnet är ett befintligt namn i listan
-                    else if (username == "Knatte" || username == "Fnatte" || username == "Tjatte" || customer.Username == username)
+                    else if (customer.Username == username)
                     {
                         
                         //Om det inmatade lösenordet passar in till den befintliga användarens lösenord
@@ -134,7 +137,7 @@ namespace IthsLabb2
                         break;
                     }
                     //Om man anger att namn och lösenord är tomt
-                    else if (username.Trim() == String.Empty || password.Trim() == String.Empty)
+                    else if (username.Trim() == String.Empty && password.Trim() == String.Empty)
                     {
                         Console.WriteLine("Användarnamn och lösenord kan inte vara tomma tecken. Vänligen försök igen");
                         Console.Write("Användarnamn: ");
@@ -143,7 +146,7 @@ namespace IthsLabb2
                         password = Console.ReadLine();
 
                         //Om det inmatande namnet man skriver in redan är någon av de befintliga användarna
-                        if (username.Trim() == "Knatte" || username.Trim() == "Fnatte" || username.Trim() == "Tjatte")
+                        if (username.Trim() == customers.Username)
                         {
                             loop = true;
                             Console.Write("Det här användarnamnet finns redan. Tryck på valfri knapp för att logga in: ");
@@ -282,11 +285,13 @@ namespace IthsLabb2
             var sumPear = products[2].Price * pear;
             double totalSum = sumBanana + sumApple + sumPear;
 
+            //Om kundvagnen är tom
             if (totalSum == 0)
             {
                 Console.WriteLine("Din kundvagn är tom! Vänligen handla valfria produkter om du vill se din kundvagn!");
                 Console.WriteLine("");
             }
+            //Om kundvagnen inte är tom
             else
             {
                 Console.WriteLine("Här är din kundvagn!");
@@ -310,6 +315,17 @@ namespace IthsLabb2
             Console.WriteLine("Vill du handla mer eller gå tillbaka?");
             Console.WriteLine("4. För att Handla mer");
             Console.WriteLine("0. För att gå till kundvagnen");
+        }
+        
+        /// <summary>
+        /// Tömmer kundvagnen om det finns produkter i den
+        /// </summary>
+        public void ClearCart()
+        {
+            if (CurrentCustomer.cart.Count != 0)
+            {
+                CurrentCustomer.cart.Clear();
+            }
         }
 
         public override string ToString()

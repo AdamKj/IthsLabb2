@@ -10,11 +10,8 @@ namespace IthsLabb2
         {
             DrawBoxes meny = new();
             Cart cart = new();
-            string username = "";
-            string password = "";
-            Customer customer = new(username, password);
+            Customer customer = new();
 
-            //Första menyn när man startar applikationen
             meny.DrawBoxMeny1();
             string input = Console.ReadLine();
 

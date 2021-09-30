@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IthsLabb2
 {
@@ -18,11 +14,10 @@ namespace IthsLabb2
             Console.WriteLine("Tryck 3 för att Logga ut");
 
             string input = Console.ReadLine();
-            string s = "";
-            string n = "";
-            Customer customer = new Customer(s,n);
+            Customer customer = new();
             DrawBoxes meny = new DrawBoxes();
-
+            
+            //Ber om ursäkt för denna röran
             while (input != "1" || input != "2" || input != "3")
             {
                 switch (input)
@@ -36,7 +31,7 @@ namespace IthsLabb2
                         CartAction();
                         break;
                     case "3":
-                        customer.cart.Clear();
+                        customer.ClearCart();
                         meny.DrawBoxMeny1();
                         input = Console.ReadLine();
                         switch (input)
@@ -64,7 +59,7 @@ namespace IthsLabb2
                                     default:
                                         while (input != "1" || input != "2" || input != "9")
                                         {
-                                            Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
+                                            Console.Write("Vänligen välj ett av de ovanstående alternativen: ");
                                             input = Console.ReadLine();
                                         }
                                         break;
@@ -93,7 +88,7 @@ namespace IthsLabb2
                                     default:
                                         while (input != "1" || input != "2" || input != "9")
                                         {
-                                            Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
+                                            Console.Write("Vänligen välj ett av de ovanstående alternativen: ");
                                             input = Console.ReadLine();
                                         }
                                         break;
@@ -112,13 +107,12 @@ namespace IthsLabb2
                         }
                         else
                         {
-                            Console.WriteLine("Vänligen välj en av de ovanstående alternativen");
+                            Console.Write("Vänligen välj en av de ovanstående alternativen: ");
                             input = Console.ReadLine();
                         }
                         break;
                 }
             }
-
         }
 
         /// <summary>
