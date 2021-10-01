@@ -59,7 +59,7 @@ namespace IthsLabb2
                         password = Console.ReadLine();
                     }
                     //Om det inmatade användarnamnet är ett befintligt namn i listan
-                    else if (customer.Username == username)
+                    else if (username.Trim() == customer.Username)
                     {
                         
                         //Om det inmatade lösenordet passar in till den befintliga användarens lösenord
@@ -219,7 +219,7 @@ namespace IthsLabb2
                         input = Console.ReadLine();
                         break;
                     default:
-                        Console.WriteLine("Vänligen välj ett av de ovanstående alternativen");
+                        Console.Write("Vänligen välj ett av de ovanstående alternativen: ");
                         input = Console.ReadLine();
                         break;
                 }
@@ -288,7 +288,8 @@ namespace IthsLabb2
             //Om kundvagnen är tom
             if (totalSum == 0)
             {
-                Console.WriteLine("Din kundvagn är tom! Vänligen handla valfria produkter om du vill se din kundvagn!");
+                Console.WriteLine("Din kundvagn är tom! Du kan lämna butiken utan att handlat något,");
+                Console.WriteLine("men du får gärna handla valfria produkter om du vill se din kundvagn!");
                 Console.WriteLine("");
             }
             //Om kundvagnen inte är tom
